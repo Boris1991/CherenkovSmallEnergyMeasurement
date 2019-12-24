@@ -1,0 +1,7 @@
+/home/boris/Projects/ArticleRREPS/QuartzLowEnergy/QuartzLowEnergy-build/CMakeFiles/install/strip.dir
+/home/boris/Projects/ArticleRREPS/QuartzLowEnergy/QuartzLowEnergy-build/CMakeFiles/edit_cache.dir
+/home/boris/Projects/ArticleRREPS/QuartzLowEnergy/QuartzLowEnergy-build/CMakeFiles/exampleB4Diamond.dir
+/home/boris/Projects/ArticleRREPS/QuartzLowEnergy/QuartzLowEnergy-build/CMakeFiles/list_install_components.dir
+/home/boris/Projects/ArticleRREPS/QuartzLowEnergy/QuartzLowEnergy-build/CMakeFiles/install/local.dir
+/home/boris/Projects/ArticleRREPS/QuartzLowEnergy/QuartzLowEnergy-build/CMakeFiles/rebuild_cache.dir
+/home/boris/Projects/ArticleRREPS/QuartzLowEnergy/QuartzLowEnergy-build/CMakeFiles/install.dir

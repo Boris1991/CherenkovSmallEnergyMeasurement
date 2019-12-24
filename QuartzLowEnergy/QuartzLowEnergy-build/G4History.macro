@@ -1,0 +1,8 @@
+/run/verbose 2
+/run/initialize /gps/particle e-
+/gps/p/run/printProgress 1000
+entre 0 0 -0.4 cm
+/gps/direction 0 0 1
+/gps/energy 0.3 MeV
+/run/printProgress 1000
+/run/beamOn 1000000
