@@ -1,0 +1,16 @@
+/run/verbose 2
+/run/initialize //run/geometryModified 
+s/type Point
+/gps/pos/centre 0 0 -4 cm
+/gps/direction 0 0 1
+/gps/energy 6 MeV
+/B5/detector/targetAngle 45 deg
+/run/geometryModified
+/run/beamOn 1
+/vis/scene/notifyHandlers scene-0
+/vis/viewer/set/projection p
+/vis/viewer/refresh
+/vis/viewer/set/style w
+/vis/viewer/refresh
+/vis/viewer/set/hiddenEdge 0
+/vis/viewer/refresh

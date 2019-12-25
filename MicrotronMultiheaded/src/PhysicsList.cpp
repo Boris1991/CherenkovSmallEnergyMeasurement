@@ -48,7 +48,7 @@
 
 #include "G4ProcessManager.hh"
 
-#include "G4Cerenkov1.hh"
+#include "G4Cerenkov.hh"
 #include "G4Scintillation.hh"
 #include "G4OpAbsorption.hh"
 #include "G4OpRayleigh.hh"
@@ -60,7 +60,7 @@
 
 G4ThreadLocal G4int PhysicsList::fVerboseLevel = 1;
 G4ThreadLocal G4int PhysicsList::fMaxNumPhotonStep = 20;
-G4ThreadLocal G4Cerenkov1* PhysicsList::fCerenkovProcess ;
+G4ThreadLocal G4Cerenkov* PhysicsList::fCerenkovProcess ;
 G4ThreadLocal G4Scintillation* PhysicsList::fScintillationProcess ;
 G4ThreadLocal G4OpAbsorption* PhysicsList::fAbsorptionProcess = 0;
 G4ThreadLocal G4OpRayleigh* PhysicsList::fRayleighScatteringProcess = 0;
@@ -178,10 +178,10 @@ void PhysicsList::ConstructEM()
 
     } else if (particleName == "e-") {
     //electron
-       //Construct processes for electron
+      // Construct processes for electron
       pmanager->AddProcess(new G4eMultipleScattering(),-1, 1, 1);
-      //pmanager->AddProcess(new G4eIonisation(),       -1, 2, 2);
-      //pmanager->AddProcess(new G4eBremsstrahlung(),   -1, 3, 3);
+      pmanager->AddProcess(new G4eIonisation(),       -1, 2, 2);
+      pmanager->AddProcess(new G4eBremsstrahlung(),   -1, 3, 3);
 
     } else if (particleName == "e+") {
     //positron
@@ -189,7 +189,7 @@ void PhysicsList::ConstructEM()
       pmanager->AddProcess(new G4eMultipleScattering(),-1, 1, 1);
       pmanager->AddProcess(new G4eIonisation(),       -1, 2, 2);
       pmanager->AddProcess(new G4eBremsstrahlung(),   -1, 3, 3);
-      pmanager->AddProcess(new G4eplusAnnihilation(),  0,-1, 4);
+    //  pmanager->AddProcess(new G4eplusAnnihilation(),  0,-1, 4);
 
     } else if( particleName == "mu+" ||
                particleName == "mu-"    ) {
@@ -217,7 +217,7 @@ void PhysicsList::ConstructEM()
 
 void PhysicsList::ConstructOp()
 {
-  fCerenkovProcess = new G4Cerenkov1("Cerenkov");
+  fCerenkovProcess = new G4Cerenkov("Cerenkov");
   fCerenkovProcess->SetMaxNumPhotonsPerStep(fMaxNumPhotonStep);
   fCerenkovProcess->SetMaxBetaChangePerStep(1000.0);
   fCerenkovProcess->SetTrackSecondariesFirst(true);
@@ -251,8 +251,8 @@ void PhysicsList::ConstructOp()
     G4ProcessManager* pmanager = particle->GetProcessManager();
     G4String particleName = particle->GetParticleName();
     if (fCerenkovProcess->IsApplicable(*particle)) {
-      pmanager->AddProcess(fCerenkovProcess);
-      pmanager->SetProcessOrdering(fCerenkovProcess,idxPostStep);
+      //pmanager->AddProcess(fCerenkovProcess);
+     // pmanager->SetProcessOrdering(fCerenkovProcess,idxPostStep);
     }
     if (fScintillationProcess->IsApplicable(*particle)) {
       pmanager->AddProcess(fScintillationProcess);

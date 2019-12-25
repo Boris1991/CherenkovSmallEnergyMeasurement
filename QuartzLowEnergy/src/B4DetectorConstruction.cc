@@ -92,7 +92,7 @@ void B4DetectorConstruction::DefineMaterials()
 //                         энергии фотонов
 //*******************************************************************
 G4double photonEnergy[] =
-            {1.379*eV, 1.427*eV, 1.478*eV, 1.530*eV, 1.584*eV, 
+           /* {1.379*eV, 1.427*eV, 1.478*eV, 1.530*eV, 1.584*eV, 
              1.640*eV, 1.700*eV, 1.757*eV, 1.819*eV, 1.883*eV, 
              1.949*eV, 2.018*eV, 2.090*eV, 2.163*eV, 2.239*eV, 
              2.318*eV, 2.400*eV, 2.484*eV, 2.571*eV, 2.662*eV, 
@@ -100,7 +100,8 @@ G4double photonEnergy[] =
              3.277*eV, 3.392*eV, 3.512*eV, 3.635*eV, 3.764*eV, 
              3.896*eV, 4.033*eV, 4.176*eV, 4.323*eV, 4.476*eV,
              4.633*eV, 4.796*eV, 4.965*eV, 5.140*eV, 5.321*eV,
-             5.507*eV, 5.703*eV, 5.904*eV};
+             5.507*eV, 5.703*eV, 5.904*eV};*/
+             {1.4*eV, 1.6*eV, 1.8*eV, 2.0*eV, 2.2*eV, 2.4*eV};
 
 
 const G4int nEntries = sizeof(photonEnergy)/sizeof(G4double);
@@ -116,7 +117,7 @@ const G4int nEntries = sizeof(photonEnergy)/sizeof(G4double);
 //коэффициент преломления для воздуха
 
   G4double refractiveIndex0[] =
-            { 1.00, 1.00, 1.00, 1.00, 1.00, 
+            /*{ 1.00, 1.00, 1.00, 1.00, 1.00,
               1.00, 1.00, 1.00, 1.00, 1.00,
               1.00, 1.00, 1.00, 1.00, 1.00, 
               1.00, 1.00, 1.00, 1.00, 1.00,
@@ -124,7 +125,8 @@ const G4int nEntries = sizeof(photonEnergy)/sizeof(G4double);
               1.00, 1.00, 1.00, 1.00, 1.00,
               1.00, 1.00, 1.00, 1.00, 1.00, 
               1.00, 1.00, 1.00, 1.00, 1.00,
-              1.00, 1.00, 1.00};
+              1.00, 1.00, 1.00};*/
+              { 1.00, 1.00, 1.00, 1.00, 1.00,1.00};
 
  G4MaterialPropertiesTable* myMPT2 = new G4MaterialPropertiesTable();
   myMPT2->AddProperty("RINDEX", photonEnergy, refractiveIndex0, nEntries);
@@ -154,20 +156,13 @@ worldMaterial->SetMaterialPropertiesTable(myMPT2);
               1.3, 1.3, 1.3, 1.3, 1.3,
               1.3, 1.3, 1.3, 1.3, 1.3,
               1.3, 1.3, 1.3};*/
-              {2.432, 2.432, 2.432, 2.432, 2.432,
-              2.432, 2.432, 2.432, 2.432, 2.432,
-              2.432, 2.432, 2.432, 2.432, 2.432,
-              2.432, 2.432, 2.432, 2.432, 2.432,
-              2.432, 2.432, 2.432, 2.432, 2.432,
-              2.432, 2.432, 2.432, 2.432, 2.432,
-              2.432, 2.432, 2.432, 2.432, 2.432,
-              2.432, 2.432, 2.432, 2.432, 2.432,
-              2.432, 2.432, 2.432};
+              {2.4, 2.406, 2.4062, 2.4065, 2.411,2.421
+              };
             
  assert(sizeof(refractiveIndex1) == sizeof(photonEnergy));
 
  G4double absorption[] =
-             {5*mm, 5*mm, 5*mm, 5*mm, 5*mm,
+            /* {5*mm, 5*mm, 5*mm, 5*mm, 5*mm,
              5*mm, 5*mm, 5*mm, 5*mm, 5*mm,
              5*mm, 5*mm, 5*mm, 5*mm, 5*mm,
              5*mm, 5*mm, 5*mm, 5*mm, 5*mm, 
@@ -175,7 +170,8 @@ worldMaterial->SetMaterialPropertiesTable(myMPT2);
              5*mm, 5*mm, 5*mm, 5*mm, 5*mm,
              5*mm, 5*mm, 5*mm, 5*mm, 5*mm,
              5*mm, 5*mm, 5*mm, 5*mm, 5*mm, 
-             5*mm, 5*mm, 5*mm};
+             5*mm, 5*mm, 5*mm};*/
+             {5*mm, 5*mm, 5*mm, 5*mm, 5*mm,5*mm};
            /* {500*m, 500*m, 500*m, 500*m, 500*m,
              500*m, 500*m, 500*m, 500*m, 500*m,
              500*m, 500*m, 500*m, 500*m, 500*m,
@@ -393,7 +389,7 @@ auto target
   
   auto solidDet//absorberS 
     = new G4Box("Detector",            // its name
-                 100*mm, 100*mm, 0.2*mm); // its size
+                 100*mm, 100*mm, 0.001*mm); // its size
    //круглая форма
     
  /* G4double pRmin =  100.*mm, pRmax = 101.*mm;

@@ -62,7 +62,7 @@ B4RunAction::B4RunAction()
   
   // Creating histograms
 analysisManager->CreateH1("electronSpectra","electron spectra", 50, 0*keV, 450*keV);
-  analysisManager->CreateH1("YPolar","",100 , 0.5, M_PI/2);
+  analysisManager->CreateH1("YPolar","",100 , 0, M_PI/2);
   //analysisManager->CreateH1("YPolar","angular distribution",100 , -90, 90);
   analysisManager->CreateH1("Xx","photon spectra", 50, 1.4*eV, 6.*eV);
   analysisManager->CreateH1("Yy","y position", 51, -40*mm, 40*mm);

@@ -105,7 +105,7 @@ G4Cerenkov1::G4Cerenkov1(const G4String& processName, G4ProcessType type)
   thePhysicsTable = nullptr;
 
   if (verboseLevel>0) {
-     G4cout << GetProcessName() << " is created " << G4endl;
+     //G4cout << GetProcessName() << " is created " << G4endl;
   }
 }
 
@@ -263,7 +263,7 @@ G4Cerenkov1::PostStepDoIt(const G4Track& aTrack, const G4Step& aStep)
   
   G4double beta1 = pPreStepPoint ->GetBeta();
   G4double beta2 = pPostStepPoint->GetBeta();
-  G4cout<<"loch="<<beta1<<G4endl;
+  //G4cout<<"loch="<<beta1<<G4endl;
   
   G4double MeanNumberOfPhotons1 =
                      GetAverageNumberOfPhotons(charge,beta1,aMaterial,Rindex);
@@ -289,7 +289,7 @@ G4Cerenkov1::PostStepDoIt(const G4Track& aTrack, const G4Step& aStep)
          sampledEnergy = Pmin + rand * dp; 
          sampledRI = Rindex->Value(sampledEnergy);
          cosTheta = BetaInverse / sampledRI;  
-		 G4cout<<"tyu = "<<cosTheta<<G4endl;
+		 //G4cout<<"tyu = "<<cosTheta<<G4endl;
 
          sin2Theta = (1.0 - cosTheta)*(1.0 + cosTheta);
          rand = G4UniformRand();	
@@ -311,11 +311,11 @@ G4Cerenkov1::PostStepDoIt(const G4Track& aTrack, const G4Step& aStep)
       //  aligned with the z axis)
 
       G4double sinTheta = std::sqrt(sin2Theta);
-      G4cout<<"gjgj = "<<sinTheta<<G4endl;
+      //G4cout<<"gjgj = "<<sinTheta<<G4endl;
       G4double px = sinTheta*cosPhi;
       G4double py = sinTheta*sinPhi;
       G4double pz = cosTheta;
-      G4cout<<"sinTheta = "<<sinTheta<<"gjgjY = "<<py<<"gjgjZ = "<<pz<<G4endl;
+      //G4cout<<"sinTheta = "<<sinTheta<<"gjgjY = "<<py<<"gjgjZ = "<<pz<<G4endl;
 
       // Create photon momentum direction vector 
       // The momentum direction is still with respect
@@ -387,8 +387,8 @@ G4Cerenkov1::PostStepDoIt(const G4Track& aTrack, const G4Step& aStep)
   }
 
   if (verboseLevel>0) {
-     G4cout <<"\n Exiting from G4Cerenkov::DoIt -- NumberOfSecondaries = "
-	    << aParticleChange.GetNumberOfSecondaries() << G4endl;
+     //G4cout <<"\n Exiting from G4Cerenkov::DoIt -- NumberOfSecondaries = "
+	    //<< aParticleChange.GetNumberOfSecondaries() << G4endl;
   }
 
   return pParticleChange;
@@ -681,8 +681,8 @@ G4double
      ge = CAImax - CAImin;
 
      if (verboseLevel>0) {
-        G4cout << "CAImin = " << CAImin << G4endl;
-        G4cout << "ge = " << ge << G4endl;
+        //G4cout << "CAImin = " << CAImin << G4endl;
+        //G4cout << "ge = " << ge << G4endl;
      }
   }
 	
